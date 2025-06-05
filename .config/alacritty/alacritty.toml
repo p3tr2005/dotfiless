@@ -1,0 +1,14 @@
+[general]
+live_config_reload = true
+import = [
+  "~/.config/alacritty/monokai.toml"
+]
+
+[window]
+padding.x = 5
+padding.y = 5
+
+[font]
+normal = {family = "JetBrainsMono Nerd Font", style = "Bold"}
+size = 18
+offset.y = 12
