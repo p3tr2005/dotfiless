@@ -1,0 +1,147 @@
+/* Material Design 3 (Material You) Waybar Theme */
+
+* {
+  font-family: "Lexend", "Roboto", "Noto Sans", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  border-radius: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  /* Using a dark "Surface" color instead of pure black */
+  background-color: #1c1b1f;
+  color: #e6e1e5;
+  transition-property: background-color;
+  transition-duration: 0.5s;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+window#waybar.hidden {
+  opacity: 0.2;
+}
+
+/* Base style for all modules */
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd,
+#custom-media {
+  padding: 0 12px;
+  margin: 4px 2px;
+  background-color: transparent;
+  border-radius: 16px; /* Material Pill Shape */
+  transition: all 0.2s ease-in-out;
+}
+
+/* Material State Layer (Hover) */
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#disk:hover,
+#network:hover,
+#pulseaudio:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Workspaces - Material Tab Style */
+#workspaces button {
+  padding: 0 8px;
+  margin: 4px 2px;
+  color: #938f99; /* Outline color */
+  background-color: transparent;
+  border-radius: 20px;
+}
+
+#workspaces button:hover {
+  background-color: rgba(231, 224, 236, 0.1);
+  box-shadow: none;
+}
+
+#workspaces button.active {
+  color: #e8def8; /* Primary Container Text */
+  background-color: #4a4458; /* Primary Container */
+}
+
+#workspaces button.urgent {
+  background-color: #f2b8b5; /* Error Container */
+  color: #601410;
+}
+
+/* Primary Accents */
+#clock {
+  color: #d0bcff; /* Material Primary Light */
+}
+
+#pulseaudio {
+  color: #bbc4ff; /* Material Secondary Light */
+}
+
+#network {
+  color: #b1d18a; /* Material Tertiary Light */
+}
+
+/* Battery Logic */
+#battery.charging,
+#battery.plugged {
+  color: #b1d18a;
+}
+
+#battery.critical:not(.charging) {
+  background-color: #f2b8b5;
+  color: #601410;
+  animation-name: blink;
+  animation-duration: 0.8s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+@keyframes blink {
+  to {
+    background-color: #8c1d18; /* Darker Error */
+    color: #f9dedc;
+  }
+}
+
+/* System Monitors */
+#cpu {
+  color: #d0bcff;
+}
+#memory {
+  color: #ccc2dc;
+}
+#temperature {
+  color: #efb8c8;
+}
+#temperature.critical {
+  background-color: #f2b8b5;
+}
+
+/* Tray & Misc */
+#tray {
+  margin-right: 8px;
+}
+
+#idle_inhibitor.activated {
+  color: #d0bcff;
+}
+
+#custom-power {
+  color: #f2b8b5;
+  padding: 0 15px;
+}
